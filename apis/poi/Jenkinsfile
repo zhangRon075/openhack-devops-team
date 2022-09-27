@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git checkout') {
+            steps{
+                git clone 'https://github.com/zhangRon075/hello-Jenkinsfile.git'
+            
+            }
+        }
+        
+        stage('Build') {
+            steps{
+                // Do your build task
+            }
+        }
+        
+        stage('Test') {
+            steps{
+                // Run unit tests, integration tests, and/or e2e tests
+            }
+        }
+        
+        stage('Publish') {
+            steps{
+                // Publish your artifacts to somewhere.
+                // However, in our hands-on, you just need to print the artifact list by Linux command 'ls -la'
+            }
+        }
+    }
+
+    post {
+        always { 
+            echo 'I will always say Hello again!'
+        }
+    }
+}
+  
